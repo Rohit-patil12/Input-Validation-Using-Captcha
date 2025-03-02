@@ -1,0 +1,130 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #4A90E2, #4070F4);
+}
+
+/* Common Flexbox Styling */
+:where(.container, form, .input-field, header) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Glassmorphism Card */
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 30px 65px;
+    border-radius: 12px;
+    row-gap: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.02);
+}
+
+/* Circular Header */
+.container header {
+    height: 65px;
+    width: 65px;
+    background: #4070F4;
+    color: #fff;
+    font-size: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Headline */
+.container h4 {
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Input Fields */
+form .input-field {
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+.input-field input {
+    height: 50px;
+    width: 50px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1.25rem;
+    text-align: center;
+    border: 2px solid #ddd;
+    transition: all 0.3s ease-in-out;
+}
+
+.input-field input:focus {
+    border: 2px solid #4070F4;
+    box-shadow: 0px 0px 8px rgba(64, 112, 244, 0.5);
+    transform: scale(1.05);
+}
+
+/* Hide Spinners in Number Input */
+.input-field input::-webkit-inner-spin-button,
+.input-field input::-webkit-outer-spin-button {
+    display: none;
+}
+
+/* Submit Button */
+form button {
+    margin-top: 20px;
+    width: 100%;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    padding: 12px 0;
+    cursor: pointer;
+    border-radius: 8px;
+    background: #6E93F7;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+form button.active {
+    background: #4070F4;
+    pointer-events: auto;
+    box-shadow: 0px 4px 10px rgba(64, 112, 244, 0.3);
+}
+
+form button:hover {
+    background: #0E4BF1;
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 15px rgba(14, 75, 241, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .container {
+        padding: 20px 40px;
+    }
+
+    .input-field input {
+        height: 45px;
+        width: 45px;
+    }
+}

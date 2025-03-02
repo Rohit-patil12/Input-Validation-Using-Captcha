@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Bank - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('/static/img/bank.jpg');
+            background-size: cover;
+            background-position: center; 
+            background-attachment: fixed; 
+        }
+    </style>
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="card p-4 shadow" style="width: 350px;">
+        <h4 class="text-center">Global Bank Login</h4>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form method="post">
+            <label>Username:</label>
+            <input type="text" name="username" class="form-control my-2" placeholder="Enter your username" required>
+            
+            <label>Password:</label>
+            <input type="password" name="password" class="form-control my-2" placeholder="Enter your password" required>
+            
+            <div class="text-center">
+                <img src="data:image/png;base64,{{ captcha_image }}" alt="CAPTCHA" class="img-fluid my-2">
+            </div>
+            <input type="text" name="captcha" class="form-control my-2" placeholder="Enter CAPTCHA" required>
+            
+            <div class="form-check my-2">
+                <input class="form-check-input" type="checkbox" name="not_robot" id="notRobot" required>
+                <label class="form-check-label" for="notRobot">
+                    I am not a robot
+                </label>
+            </div>
+            
+            <button type="submit" class="btn btn-success w-100">Login</button>
+            <a href="/register" class="btn btn-outline-success w-100 mt-2">REGISTER</a>
+        </form>
+    </div>
+</body>
+</html>
